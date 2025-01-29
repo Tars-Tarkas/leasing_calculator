@@ -1,10 +1,11 @@
-import React, { FC } from "react";
+import { ComponentProps, FC } from "react";
 import styled from "./Button.module.scss";
 
-type ButtonProps = {
-  text: string;
-};
-export const Button: FC<ButtonProps> = (props, ...rest) => {
-  const {} = props;
-  return <button></button>;
+export const Button: FC<ComponentProps<"button">> = ({ disabled, ...rest }) => {
+  return (
+    <button
+      className={`${styled.style} ${disabled ? `${styled.disabled}` : ""}`}
+      {...rest}
+    ></button>
+  );
 };
